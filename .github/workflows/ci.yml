@@ -25,3 +25,15 @@ jobs:
     - name: Run tests
       run: |
         python -m pytest  # Assuming you're using pytest for testing
+
+    - name: Generate artifact
+      run: |
+        mkdir -p artifacts
+        mv output.txt artifacts/
+      if: always()
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: my-artifact
+        path: artifacts/
