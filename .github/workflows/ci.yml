@@ -1,9 +1,6 @@
 name: CI
 
 on:
-  push:
-    branches:
-      - main  # Adjust based on your branch naming convention
   pull_request:
     branches:
       - main  # Adjust based on your branch naming convention
@@ -33,11 +30,9 @@ jobs:
       run: |
         mkdir -p artifacts
         mv output.txt artifacts/
-      if: ${{ github.event_name == 'pull_request' || always() }}
 
     - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
         name: my-artifact
         path: artifacts/
-      if: ${{ github.event_name == 'pull_request' }}
