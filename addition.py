@@ -6,7 +6,7 @@ def add(a, b):
         f.write(str(result))
 
     return result 
-    
+    return result
 
 print(add(4, 5))
 
